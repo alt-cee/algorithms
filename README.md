@@ -1,2 +1,2 @@
 # algorithms
-Collection of implemented algorithms 
+Collection of algorithms implemented in Python.
