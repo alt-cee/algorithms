@@ -34,21 +34,31 @@ def partition(array:list, l:int, h: int):
                 i += 1
             while array[j] > pivot:
                 j -= 1
-            swap(array, i, j)
-            i += 1
-            j -= 1
-            array.insert(j, array.pop(l))
+            if i < j:
+                swap(array, i, j)
+                i += 1
+                j -= 1
+        array.insert(j, array.pop(l))
         
         return j
 
 
 def quickSort2(array:list, l:int, h: int):
     
+    if h - l <= 1:
+        return array[l]
+
+    else:
+        j = partition(array, l, h)
+        quickSort2(array, l, j)
+        quickSort2(array, j+1, h)
+        return array
+    
     
 
 if __name__ == "__main__":
     array = [10, 5, 2, 6, 4, 11, 1]
     print("array: ", array)
-    # print("quickSort1: ", quickSort1(array))
-    print("partition: ", partition(array, 0, len(array) - 1))
-    # print("quickSort2: ", quickSort2(array))
+    print("quickSort1: ", quickSort1(array))
+    # print("partition: ", partition(array, 0, len(array) - 1))
+    print("quickSort2: ", quickSort2(array, 0, len(array) - 1))
