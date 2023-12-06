@@ -20,18 +20,18 @@ def merge(array: list, l, m, h) -> None:
         for k in range(i, m + 1):
             a.append(array[k])
     
-    for i in range(len(a)):
-        array[i] = a[i]
+    for q in range(len(a)):
+        array[l + q] = a[q]
             
 
 def iMergeSort(array, m):
     p = 2
     while p <= m:
         i = 0
-        while i + p < m:
+        while i + p <= m:
             low = i
             high = i + p - 1
-            mid = (high - low) // 2
+            mid = (high + low) // 2
             merge(array, low, mid, high)
             i += p
         p *= 2
@@ -40,7 +40,7 @@ def iMergeSort(array, m):
 
 
 if __name__ == "__main__":
-    array = [10, 5, 2, 6, 4, 11, 1]
+    array = [10, 5, 2, 6, 4, 11, 1, 3]
     # test merge
     # x = [1, 3, 2, 4]
     # merge(x, 0, 1, 3)
