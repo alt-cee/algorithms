@@ -1,11 +1,11 @@
 def quicksort(array: list):
     if len(array) < 2:
         return array
-    elif len(array) == 2:
-        if array[0] < array[1]:
-            return array
-        else:
-            return [array[1], array[0]]
+    # elif len(array) == 2:
+    #     if array[0] < array[1]:
+    #         return array
+    #     else:
+    #         return [array[1], array[0]]
     else:
         pivot = array.pop()
         left = []
