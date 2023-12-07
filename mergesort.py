@@ -39,8 +39,16 @@ def iMergeSort(array, m):
 
 
 def rMergeSort(array, l, h):
-    pass
-    
+    if (h - l) == 1:
+        return array
+    else:
+        low = l
+        high = h
+        mid = (l + h) // 2
+        rMergeSort(array, low, mid)
+        rMergeSort(array, mid + 1, high)  # off by one
+        merge(array, low, mid, high)
+    return array    
 
 
 if __name__ == "__main__":
@@ -51,5 +59,5 @@ if __name__ == "__main__":
     # print(x)
 
     # test iMergeSort
-    print(iMergeSort(array, len(array)))
-    print(rMergeSort(array, 0, len(array)))
+    # print("Iterative MergeSort: ", iMergeSort(array, len(array)))
+    print("Recursive MergeSort: ", rMergeSort(array, 0, len(array) - 1))  # off by one
