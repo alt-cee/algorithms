@@ -38,7 +38,7 @@ def partition(array:list, l:int, h: int):
                 swap(array, i, j)
                 i += 1
                 j -= 1
-        array.insert(j, array.pop(l))
+        array.insert(j, array.pop(l))  # can also swap A[l], A[j] here - why?
         
         return j
 
