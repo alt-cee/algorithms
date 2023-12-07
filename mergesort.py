@@ -36,6 +36,10 @@ def iMergeSort(array, m):
             i += p
         p *= 2
     return array
+
+
+def rMergeSort(array, l, h):
+    pass
     
 
 
@@ -48,3 +52,4 @@ if __name__ == "__main__":
 
     # test iMergeSort
     print(iMergeSort(array, len(array)))
+    print(rMergeSort(array, 0, len(array)))
