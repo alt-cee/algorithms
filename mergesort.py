@@ -1,4 +1,5 @@
 from math import log2
+from time_it import time_def
 
 def merge(array: list, l, m, h) -> None:
     a = []
@@ -24,6 +25,7 @@ def merge(array: list, l, m, h) -> None:
         array[l + q] = a[q]
             
 
+@time_def
 def iMergeSort(array, m):
     p = 2
     while p <= m:
@@ -37,7 +39,7 @@ def iMergeSort(array, m):
         p *= 2
     return array
 
-
+@time_def
 def rMergeSort(array, l, h):
     if (h - l) == 1:
         return array
@@ -59,5 +61,5 @@ if __name__ == "__main__":
     # print(x)
 
     # test iMergeSort
-    # print("Iterative MergeSort: ", iMergeSort(array, len(array)))
+    print("Iterative MergeSort: ", iMergeSort(array, len(array)))
     print("Recursive MergeSort: ", rMergeSort(array, 0, len(array) - 1))  # off by one
