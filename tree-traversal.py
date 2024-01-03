@@ -19,9 +19,7 @@ def create_tree():
     return root
 
 def recursive_preorder(node):
-    if not node:
-        return None
-    else:
+    if node:
         print(node.value)
         recursive_preorder(node.left)
         recursive_preorder(node.right)
