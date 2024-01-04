@@ -33,7 +33,6 @@ def iterative_preorder(root):
         if p:
             print(p.value)
             stack.append(p)
-            print([x.value for x in stack])
             p = p.left
         else:
             p = stack.pop()
@@ -50,7 +49,21 @@ def recursive_postorder(node):
 def iterative_postorder(root):
     stack = []
     p = root
-    while (len(stack) > 0 )
+    while (len(stack) > 0 or p):
+        if p:
+            stack.append(p)
+            p = p.left
+        else:
+            p = stack.pop()
+            if p.value[0] == "-":
+                print(p.value.strip("-"))
+                p = stack.pop()
+                p = p.right
+            else:
+                p.value = f"-{p.value}"
+                stack.append(p)
+                p = p.right
+
 
 
 if __name__ == "__main__":
@@ -58,8 +71,8 @@ if __name__ == "__main__":
     # print("Recursive preorder: ")
     # recursive_preorder(root)
     # print("Iterative preorder: ")
-    iterative_preorder(root)
-    # print("Recursive postorder: ")
-    # recursive_postorder(root)
-    # print("Iterative postorder: ")
-    # iterative_postorder(root)
+    # iterative_preorder(root)
+    print("Recursive postorder: ")
+    recursive_postorder(root)
+    print("Iterative postorder: ")
+    iterative_postorder(root)
