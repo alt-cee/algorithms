@@ -64,13 +64,27 @@ def iterative_postorder(root):
                 p = q.right
 
 
+def iterative_level_order(root):
+    q = queue.Queue()
+    q.put(root)
+    while not q.empty():
+        p = q.get()
+        print(p.value)
+        if p.left:
+            q.put(p.left)
+        if p.right:
+            q.put(p.right)
+
+
 if __name__ == "__main__":
     root = create_tree()
     # print("Recursive preorder: ")
     # recursive_preorder(root)
     # print("Iterative preorder: ")
     # iterative_preorder(root)
-    print("Recursive postorder: ")
-    recursive_postorder(root)
-    print("Iterative postorder: ")
-    iterative_postorder(root)
+    # print("Recursive postorder: ")
+    # recursive_postorder(root)
+    # print("Iterative postorder: ")
+    # iterative_postorder(root)
+    print("Level order: ")
+    iterative_level_order(root)
