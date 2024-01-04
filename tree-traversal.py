@@ -27,26 +27,30 @@ def recursive_preorder(node):
 
 
 def iterative_preorder(root):
-    stack = []
-    stack.append(root)
-    print(root.value)
+    stack = [root]
+    p = root
     while len(stack) > 0:
-        node = stack[-1]
-        if not (node.left or node.right):
-            stack.pop()
-            stack[-1].value = f"-{stack[-1].value}" 
-            print([x.value for x in stack])
-        if node.value[0] == "-":
-            if node.right:
-                print(node.right.value)
-                stack.append(node.right)
-        if node.left:
-            print(node.left.value)
-            stack.append(node.left)
-        
+        if p:
+            print(p.value)
+            stack.append(p)
+            p = p.left
+        else:
+            p = stack.pop()
+            p = p.right
+
+
+def recursive_postorder(node):
+    if node:
+        recursive_postorder(node.left)
+        recursive_postorder(node.right)
+        print(node.value)
 
 
 if __name__ == "__main__":
     root = create_tree()
-    #recursive_preorder(root)
-    iterative_preorder(root)
+    # print("Recursive preorder: ")
+    # recursive_preorder(root)
+    # print("Iterative preorder: ")
+    # iterative_preorder(root)
+    print("Recursive postorder: ")
+    recursive_postorder(root)
