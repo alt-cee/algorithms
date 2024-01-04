@@ -29,7 +29,7 @@ def recursive_preorder(node):
 def iterative_preorder(root):
     stack = []
     p = root
-    while (len(stack) > 0 or p):
+    while (len(stack) > 0 or p):  # how long are repeating these steps?
         if p:
             print(p.value)
             stack.append(p)
@@ -48,7 +48,9 @@ def recursive_postorder(node):
 
 
 def iterative_postorder(root):
-    pass
+    stack = []
+    p = root
+    while (len(stack) > 0 )
 
 
 if __name__ == "__main__":
