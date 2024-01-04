@@ -54,16 +54,14 @@ def iterative_postorder(root):
             stack.append(p)
             p = p.left
         else:
-            p = stack.pop()
-            if p.value[0] == "-":
-                print(p.value.strip("-"))
-                p = stack.pop()
-                p = p.right
+            q = stack.pop()
+            if q.value[0] == "-":
+                print(q.value.strip("-"))
+                p = None  # this is needed to stop the traversal continuing left
             else:
-                p.value = f"-{p.value}"
-                stack.append(p)
-                p = p.right
-
+                q.value = f"-{q.value}"
+                stack.append(q)
+                p = q.right
 
 
 if __name__ == "__main__":
