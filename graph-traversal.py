@@ -29,8 +29,23 @@ class Graph:
 
         return visited
     
+    def dfs(self, node) -> list:
+        stack = [node]
+        visited = []
+
+        while len(stack) > 0:
+            current_node = stack.pop()
+            print(current_node)
+            if current_node not in visited:
+                visited.append(current_node)
+                for i, n in enumerate(self.adj_matrix[current_node]):
+                    if n == 1 and (i not in visited):
+                        stack.append(i)
+        return visited
+    
 
 if __name__ == "__main__":
     g = Graph()
-    print("BFS starting from node 1: ", g.bfs(1))
-    print("BFS starting from node 7: ", g.bfs(7))
+    # print("BFS starting from node 1: ", g.bfs(1))
+    # print("BFS starting from node 7: ", g.bfs(7))
+    print("DFS starting from node 1: ", g.dfs(1))
